@@ -12,7 +12,7 @@ const FormPage = () => {
 
   const history = useHistory()
 
-  const { product, setProductList } = useProducts()
+  const { product, setProductList, setProduct } = useProducts()
 
   const initialValues = {
     name: product?.name,
@@ -26,7 +26,11 @@ const FormPage = () => {
     let num = e.target.value.toString().replace(".","")
     if(num.length > 2)
       e.target.value = parseFloat(num.slice(0,num.length-2)+"."+num.slice(-2))
+  }
 
+  const handleClickCancel = () => {
+    history.push("")
+    setProduct(false)
   }
 
   return (
@@ -43,22 +47,27 @@ const FormPage = () => {
               category: "",
               provider: ""
             };
-            if (!values.name) {
+            if(!values.name) {
               errors.name = 'Campo Obrigatório!';
+              return errors;
             }
             if (!values.amount) {
               errors.amount = 'Campo Obrigatório!';
+              return errors;
             }
             if (!values.code) {
               errors.code = 'Campo Obrigatório!';
+              return errors;
             }
             if (!values.category) {
               errors.category = 'Campo Obrigatório!';
+              return errors;
             }
             if (!values.provider) {
               errors.provider = 'Campo Obrigatório!';
+              return errors;
             }
-            return errors;
+
           }}
           onSubmit={(values) => {
               if(product)
@@ -69,7 +78,7 @@ const FormPage = () => {
                 history.push("")
                 setTimeout(() => {
                   notifyGenericSuccess("Produto alterado com sucesso!")
-                }, 400);
+                }, 100);
               })
               .catch((error=>{
                 console.log(error)
@@ -83,7 +92,7 @@ const FormPage = () => {
                 history.push("")
                 setTimeout(() => {
                   notifyGenericSuccess("Produto cadastrado com sucesso!")
-                }, 400);
+                }, 100);
               })
               .catch((error=>{
                 console.log(error)
@@ -116,6 +125,9 @@ const FormPage = () => {
 
               <button className="st-submit-button" type="submit" >
                 {product ? "Alterar Produto" : "Cadastrar Produto" }
+              </button>
+              <button className="st-cancel-button" type="button" onClick={handleClickCancel} >
+                Voltar
               </button>
 
             </Form>

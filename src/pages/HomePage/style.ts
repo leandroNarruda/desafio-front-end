@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledIndex = styled.div`
     overflow-x: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -13,6 +14,18 @@ export const StyledIndex = styled.div`
     table {
         border-spacing: 0;
         min-width: 500px;
+    }
+    .st-btn-header {
+        margin: 2em;
+        background-color: var(--btn-header-bg);
+        border: none;
+        padding: 1em;
+        border-radius: 1em;
+        color: white;
+        cursor: pointer;
+    }
+    .st-btn-header:hover {
+        background-color: var(--btn-header-hover);
     }
     .st-tr:nth-child(2n) {
         background-color: var(--tr-bg);

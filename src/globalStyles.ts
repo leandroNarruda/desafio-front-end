@@ -8,9 +8,13 @@ const GlobalStyle = createGlobalStyle`
         /* button */
 
         --btn-primary-bg: #727cf5;
-        --btn-primary-border-color: #727cf5;
+        --btn-primary-border-color: #c1c5fd;
         --btn-primary-color: #fff;
         --btn-primary-hover-color: #6169d0;
+        --btn-header-bg: #732ff9;
+        --btn-header-hover: #26095e;
+        --btn-cancel-hover: #c3c2c2;
+        --btn-cancel-bg: #efefef;
 
         /* text */
 
@@ -23,6 +27,8 @@ const GlobalStyle = createGlobalStyle`
         /* icons */
 
         --ico-hover-color: #e91e63;
+
+        --warning-color: #fd7a87;
     }
     body {
         margin: 0;

@@ -4,9 +4,9 @@ import { useProducts } from "../../providers/Products"
 import { ProductProps } from "../../types"
 import { useHistory } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
+import { notifyError, notifyGenericSuccess } from "../../services/notifyData"
 import swal from 'sweetalert';
 import api from "../../services/api"
-import { notifyError, notifyGenericSuccess } from "../../services/notifyData"
 
 const HomePage = () => {
 
@@ -35,7 +35,7 @@ const HomePage = () => {
           history.push("")
           setTimeout(() => {
             notifyGenericSuccess("Produto excluído com sucesso!")
-          }, 400);
+          }, 100);
         })
         .catch((error=>{
           console.log(error)
@@ -48,6 +48,7 @@ const HomePage = () => {
   return (
     <StyledIndex>
       <ToastContainer style={{ width: "auto", minWidth: "250px", textAlign: "center" }} />
+      <button className="st-btn-header" onClick={()=>history.push('formulario-de-cadastro')}>Cadastrar novo</button>
       <div>
         <table>
           <thead>
@@ -80,6 +81,8 @@ const HomePage = () => {
           </tfoot>
         </table>
       </div>
+
+
     </StyledIndex>
   )
 }

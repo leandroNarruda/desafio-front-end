@@ -9,7 +9,7 @@ export const StyledIndex = styled.div`
     align-items: center;
 
     .st-register-form {
-        max-width: 37.5em;
+        max-width: 30em;
         width: 100%;
         padding: 0 1em;
     }
@@ -20,10 +20,24 @@ export const StyledIndex = styled.div`
         border: 1px solid var(--btn-primary-border-color);
         border-radius: 0.5em;
         color: var(--btn-primary-color);
-        height: 3em;
-        font-size: 1.5em;
+        height: 2.5em;
+        font-size: 1em;
         width: 100%;
         margin: 1em 0;
+    }
+
+    .st-cancel-button {
+        cursor: pointer;
+        border: 1px solid var(--btn-cancel-bg);
+        border-radius: 0.5em;
+        color: var( --txt-primary-color);
+        height: 2.5em;
+        font-size: 1em;
+        width: 100%;
+        margin: 1em 0;
+    }
+    .st-cancel-button:hover {
+        background-color: var(--btn-cancel-hover);
     }
 
     .st-submit-button:hover {
@@ -45,22 +59,25 @@ export const StyledIndex = styled.div`
 
 export const StyledField = styled(Field)`
     width: 100%;
-    height: 3em;
-    margin: ${props => props.error[props.name] ? '1em 0 .6em 0' : '1em 0'} ;
+    height: 2.5em;
+    margin: 1.1em 0;
     box-sizing: border-box;
-    border: 1px solid var(--btn-primary-border-color);
     border-radius: 0.5em;
-    font-size: 1.5em;
+    font-size: 1em;
     padding: 0 1em;
-    border-color: ${props => props.error[props.name] ? 'red' : 'var(--btn-primary-border-color)'};
+    border: 1px solid var(--btn-primary-border-color);
+    border-color: ${props => props.error[props.name] ? 'var(--warning-color)' : 'var(--btn-primary-border-color)'};
     &:focus {
         outline: none;
-        border: 1px solid rgb(2, 132, 235);
+        border: 1px solid var(--btn-primary-border-color);
+        border-color: ${props => props.error[props.name] ? 'var(--warning-color)' : 'var(--btn-primary-border-color)'};
     }
 `
 
 export const StyledErrorMessage = styled(ErrorMessage)`
-    color: red;
-    font-size: .7rem;
+    position: absolute;
+    transform: translateY(-15px);
+    color: var(--warning-color);
+    font-size: .8rem;
     margin: 0;
 `
